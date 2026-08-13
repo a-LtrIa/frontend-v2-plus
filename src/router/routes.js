@@ -164,6 +164,18 @@ const routes = [
         }
     },
     {
+        path: '/tools/magi',
+        text: 'MAGI抽卡决策',
+        name: 'MagiDecision',
+        display: true,
+        module: 'tools',
+        icon: "mdi-brain",
+        component: () => import('/src/pages/tools/magi/index.vue'),
+        meta: {
+            title: 'MAGI抽卡决策'
+        }
+    },
+    {
         path: '/tools/schedule-images',
         text: '一图流排班表',
         name: 'ScheduleImages',

@@ -1432,6 +1432,25 @@ function gachaResourcesCalculation() {
 
   localStorage.setItem("LastSettings", JSON.stringify(userConfigV2.value));
 
+  // MAGI 联动：将攒抽计算结果持久化，供 MAGI 抽卡决策系统直接沿用预算（无需用户再次填写）
+  localStorage.setItem(
+    "LastDrawResult",
+    JSON.stringify({
+      totalDraw: calculationResult.value.totalDraw,
+      preciseTotalDraw: calculationResult.value.preciseTotalDraw,
+      existTotalDraw: calculationResult.value.existTotalDraw,
+      dailyTotalDraw: calculationResult.value.dailyTotalDraw,
+      potentialTotalDraw: calculationResult.value.potentialTotalDraw,
+      rechargeTotalDraw: calculationResult.value.rechargeTotalDraw,
+      activityTotalDraw: calculationResult.value.activityTotalDraw,
+      otherTotalDraw: calculationResult.value.otherTotalDraw,
+      produceOrundumTotalDraw: calculationResult.value.produceOrundumTotalDraw,
+      scheduleName: currentScheduleName.value,
+      scheduleEnd: currentSchedule.value.end,
+      savedAt: Date.now(),
+    })
+  );
+
   setPieChart(pieChartData.value);
 
   // console.log(calculationResult.value)
